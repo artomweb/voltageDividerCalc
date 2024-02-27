@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voltage Divider</title>
+    <style>
+      body,
+      html {
+        margin: 10px;
+        padding: 0;
+        padding-bottom: 20%;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center; /* Align items at the start (top) */
+        height: 100%;
+        gap: 10px;
+      }
+
+      .svg-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      img {
+        width: 700px; /* Adjust the width as needed */
+        max-width: 100%;
+        height: auto; /* Maintain aspect ratio */
+      }
+      #form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #calcForm label {
+        text-align: right;
+        padding-right: 20px;
+      }
+
+      #calcForm input,
+      #calcForm textarea {
+        margin-right: 20px;
+      }
+      table {
+        border-collapse: collapse;
+        /* width: 100%; */
+      }
+      th,
+      td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+      }
+
+      #equation {
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="svg-container">
+        <img src="voltageDividerSchematic.svg" alt="SVG Image" />
+        <!-- <img src="equations.jpg" id="equation" /> -->
+      </div>
+
+      <div id="form-container">
+        <h2>Calculate Best Resistors to use</h2>
+        <form id="calcForm">
+          <label for="inputVoltage">Input Voltage (V):</label>
+          <input value="8.7" type="number" id="inputVoltage" name="inputVoltage" step="any" required /><br /><br />
+
+          <label for="outputVoltage">Output Voltage (V):</label>
+          <input value="3.3" type="number" id="outputVoltage" name="outputVoltage" step="any" required /><br /><br />
+
+          <label for="minResistance">Minimum total Resistance (Ω):</label>
+          <input value="0" type="number" id="minResistance" name="minResistance" step="any" /><br /><br />
+
+          <div class="center-label">
+            <label for="resistorValues">YOUR Resistor Values (each value on a new line):</label>
+          </div>
+          <textarea id="resistorValues" name="resistorValues" rows="10" required>
+3k3
+300k
+100
+10k
+1M
+470k
+47
+20k
+4k7
+47k
+680
+22
+2k2
+10
+150
+68k
+51k
+220k
+5k1
+330
+220
+510
+220
+270
+1M
+1k
+100k
+100
+200
+6k8
+5k1
+2k
+1k
+470
+330
+680k
+            
+
+          </textarea
+          ><br /><br />
+
+          <input type="submit" value="Calculate" />
+        </form>
+      </div>
+
+      <div id="result"></div>
+      <table id="resultTable"></table>
+    </div>
+  </body>
+  <script src="index.js"></script>
+</html>
